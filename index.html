@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Viva em Niterói — Seu Imóvel no Brasil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:    #0e1a20;
+      --ocean:  #1b4f63;
+      --sky:    #3a8fa8;
+      --foam:   #e8f4f8;
+      --gold:   #c8893a;
+      --sand:   #f5ede0;
+      --white:  #ffffff;
+      --muted:  #5a6a72;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background: url('Niteroi_Stock.jpg') center center / cover no-repeat;
+    }
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(14,26,32,0.15) 0%,
+        rgba(14,26,32,0.20) 40%,
+        rgba(14,26,32,0.78) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 8vw 6vh;
+      max-width: 860px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(200,137,58,0.5);
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s forwards;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+      font-weight: 700;
+      line-height: 1.07;
+      color: var(--white);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: #f0d8b8;
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+    .hero-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+    .hero-btn:hover { background: #b37730; transform: translateY(-3px); }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--ocean);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media(max-width:700px){ .stats-bar { grid-template-columns: repeat(2,1fr); } }
+    .stat {
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      margin-top: 0.45rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+
+    /* ─── SECTION SHARED ─── */
+    .section-wrap { padding: 6rem 8vw; }
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 3.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--sky); }
+
+    /* ─── SELLING POINTS GRID ─── */
+    .points-bg { background: var(--sand); }
+    .points-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .point-card {
+      background: var(--white);
+      padding: 2rem 1.8rem;
+      border-top: 3px solid var(--gold);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .point-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+    .point-icon { font-size: 1.7rem; margin-bottom: 1rem; }
+    .point-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .point-card p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .point-source {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      opacity: 0.8;
+    }
+
+    /* ─── FORM SECTION ─── */
+    .form-section { background: var(--ocean); }
+    .form-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .form-section .section-label { color: rgba(255,255,255,0.5); }
+    .form-section .section-title { color: var(--white); margin-bottom: 0.8rem; }
+    .form-intro {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .form-grid { display: flex; flex-direction: column; gap: 1.1rem; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    @media(max-width:560px){ .field-row { grid-template-columns: 1fr; } }
+
+    .field { display: flex; flex-direction: column; }
+    .field label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.5rem;
+    }
+    .field label .req { color: var(--gold); margin-left: 2px; }
+    .field label .opt { color: rgba(255,255,255,0.3); font-size:0.6rem; font-weight:400; letter-spacing:0; text-transform:none; margin-left:4px; }
+    .field input,
+    .field select {
+      padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .field input::placeholder { color: rgba(255,255,255,0.3); }
+    .field input:focus,
+    .field select:focus { border-color: var(--gold); background: rgba(255,255,255,0.12); }
+    .field select option { background: var(--ocean); color: var(--white); }
+
+    .submit-btn {
+      margin-top: 0.6rem;
+      padding: 1.1rem 3rem;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .submit-btn:hover { background: #b37730; transform: translateY(-2px); }
+
+    .form-note {
+      margin-top: 1.2rem;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.6;
+    }
+
+    .success-msg {
+      display: none;
+      padding: 1.5rem 2rem;
+      background: rgba(255,255,255,0.1);
+      border-left: 4px solid var(--gold);
+      color: var(--white);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-top: 1.5rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      padding: 2.5rem 8vw;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-copy {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Niterói · Rio de Janeiro · Brasil</span>
+    <h1>O seu próximo lar,<br><em>do outro lado<br>do oceano.</em></h1>
+    <p class="hero-sub">Niterói combina qualidade de vida incomparável, praias tranquilas e acesso rápido ao Rio — com imóveis novos a preços que nenhuma outra cidade lusófona pode oferecer.</p>
+    <a href="#cadastro" class="hero-btn">Quero saber mais</a>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-bar">
+  <div class="stat reveal">
+    <div class="stat-num">20min</div>
+    <div class="stat-label">De ferry para o<br>centro do Rio</div>
+  </div>
+  <div class="stat reveal">
+    <div class="stat-num">+73%</div>
+    <div class="stat-label">Crescimento em<br>lançamentos 2025</div>
+  </div>
+  <div class="stat reveal">
+    <div class="stat-num">#1</div>
+    <div class="stat-label">IDH mais alto<br>do estado do RJ</div>
+  </div>
+  <div class="stat reveal">
+    <div class="stat-num">+56%</div>
+    <div class="stat-label">Alta no valor<br>do aluguel em 4 anos</div>
+  </div>
+</div>
+
+<!-- ══ SELLING POINTS ══ -->
+<section class="points-bg">
+  <div class="section-wrap">
+    <p class="section-label reveal">Por que Niterói</p>
+    <h2 class="section-title reveal">A cidade que o Rio<br>não consegue <em>parar de admirar.</em></h2>
+
+    <div class="points-grid">
+
+      <div class="point-card reveal">
+        <div class="point-icon">🏗️</div>
+        <h3>Boom imobiliário</h3>
+        <p>Os lançamentos cresceram 73% em 2025 em relação a 2024, com mais de 2.900 novas unidades — e as vendas subiram 45%. O mercado está em expansão consistente.</p>
+        <span class="point-source">Fonte: ADEMI Niterói, dez. 2025</span>
+      </div>
+
+      <div class="point-card reveal">
+        <div class="point-icon">🌅</div>
+        <h3>Vista única do Rio</h3>
+        <p>Niterói oferece a vista mais bonita do Rio de Janeiro — o skyline, o Pão de Açúcar e o Corcovado vistos do outro lado da baía, a partir do seu próprio apartamento.</p>
+        <span class="point-source">Fonte: Street Smart Brazil / Wikivoyage</span>
+      </div>
+
+      <div class="point-card reveal">
+        <div class="point-icon">⛴️</div>
+        <h3>Ferry rápido para o Rio</h3>
+        <p>A travessia da Baía de Guanabara leva entre 10 e 20 minutos, com saídas frequentes da Praça XV — transporte público, não turístico. Quase 30 milhões de passageiros por ano.</p>
+        <span class="point-source">Fonte: TourByTransit / Wikivoyage</span>
+      </div>
+
+      <div class="point-card reveal">
+        <div class="point-icon">📈</div>
+        <h3>IDH mais alto do estado</h3>
+        <p>Niterói tem o Índice de Desenvolvimento Humano mais alto de todo o estado do Rio de Janeiro — e o sétimo mais alto do Brasil — refletindo saúde, educação e qualidade de vida.</p>
+        <span class="point-source">Fonte: IBGE / Fundação Getúlio Vargas</span>
+      </div>
+
+      <div class="point-card reveal">
+        <div class="point-icon">🏖️</div>
+        <h3>Praias tranquilas</h3>
+        <p>Itaipu, Camboinhas, Piratininga e Itacoatiara — praias de areia branca, ondas limpas e sem a lotação de Copacabana. Acesso por ônibus ou Uber direto.</p>
+        <span class="point-source">Fonte: Above Us Only Skies / Wikivoyage</span>
+      </div>
+
+      <div class="point-card reveal">
+        <div class="point-icon">🏛️</div>
+        <h3>Arquitetura de Niemeyer</h3>
+        <p>O Caminho Niemeyer, na orla, reúne a segunda maior coleção de obras do arquiteto Oscar Niemeyer fora de Brasília — incluindo o icônico MAC, o "disco voador" sobre o mar.</p>
+        <span class="point-source">Fonte: Street Smart Brazil</span>
+      </div>
+
+      <div class="point-card reveal">
+        <div class="point-icon">💼</div>
+        <h3>Cidade de alta renda</h3>
+        <p>Segundo a FGV, Niterói tem a maior proporção de habitantes de classe A do Brasil (55,7%), e 85,9% da população nas classes A e B. Uma vizinhança de alto padrão.</p>
+        <span class="point-source">Fonte: Fundação Getúlio Vargas, 2011</span>
+      </div>
+
+      <div class="point-card reveal">
+        <div class="point-icon">🖥️</div>
+        <h3>Ideal para trabalho remoto</h3>
+        <p>A demanda por imóveis com espaço para home office cresceu 30% em Niterói. Para quem trabalha de qualquer lugar do mundo, é a combinação perfeita: praia, cidade e conectividade.</p>
+        <span class="point-source">Fonte: The Latin Investor, 2024</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORM ══ -->
+<section class="form-section" id="cadastro">
+  <div class="section-wrap">
+    <div class="form-inner">
+      <p class="section-label">Cadastre-se</p>
+      <h2 class="section-title">Receba informações<br><em>sem compromisso.</em></h2>
+      <p class="form-intro">Deixe seu contato e enviaremos informações sobre imóveis disponíveis em Niterói. Sem spam, sem pressão — só o que for relevante para você.</p>
+
+      <div class="form-grid" id="leadForm">
+        <div class="field-row">
+          <div class="field">
+            <label>Nome <span class="req">*</span></label>
+            <input type="text" id="f-nome" placeholder="Seu nome completo">
+          </div>
+          <div class="field">
+            <label>País <span class="opt">(opcional)</span></label>
+            <select id="f-pais">
+              <option value="">Selecione...</option>
+              <option>Angola</option>
+              <option>Portugal</option>
+              <option>Moçambique</option>
+              <option>Cabo Verde</option>
+              <option>Brasil</option>
+              <option>Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>E-mail <span class="req">*</span><span class="opt">(ou WhatsApp abaixo)</span></label>
+          <input type="email" id="f-email" placeholder="seu@email.com">
+        </div>
+        <div class="field">
+          <label>WhatsApp <span class="opt">(opcional — com código do país)</span></label>
+          <input type="tel" id="f-whatsapp" placeholder="+244 912 345 678">
+        </div>
+        <div>
+          <button class="submit-btn" onclick="submitForm()">Enviar cadastro</button>
+        </div>
+        <p class="form-note">Seus dados são usados apenas para envio de informações sobre imóveis em Niterói. Você pode cancelar a qualquer momento.</p>
+      </div>
+
+      <div class="success-msg" id="successMsg">
+        ✅ <strong>Cadastro recebido!</strong><br>
+        Obrigado pelo interesse. Entraremos em contato em breve com informações sobre imóveis em Niterói.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-brand">Viva em <span>Niterói</span></div>
+  <div class="footer-copy">© 2025 · Informações sobre imóveis em Niterói, RJ, Brasil</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form submit — placeholder for Mailchimp integration
+  function submitForm() {
+    const nome = document.getElementById('f-nome').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const whatsapp = document.getElementById('f-whatsapp').value.trim();
+
+    if (!nome) { alert('Por favor, informe seu nome.'); return; }
+    if (!email && !whatsapp) { alert('Por favor, informe seu e-mail ou WhatsApp.'); return; }
+
+    // TODO: replace with Mailchimp API endpoint
+    document.getElementById('leadForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+</script>
+</body>
+</html>
