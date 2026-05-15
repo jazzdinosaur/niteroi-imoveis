@@ -202,7 +202,6 @@
     <p class="section-label reveal">Imóveis disponíveis</p>
     <h2 class="section-title reveal">Preços atuais —<br><em>em constante valorização.</em></h2>
     <p class="price-note reveal">Valores atualmente disponíveis no mercado. Niterói registra altas de alguns pontos percentuais ao mês.</p>
-
     <div class="price-grid">
       <div class="price-card reveal">
         <div class="price-type">1 Quarto</div>
@@ -299,21 +298,12 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ── Google Forms submission ──────────────────────────────────────────────
-  // SETUP — do this when you create the Google Form:
-  // 1. Go to forms.google.com → new form
-  // 2. Add four Short Answer questions: Nome, Email, WhatsApp, País
-  // 3. Click ⋮ (top right) → Get pre-filled link
-  // 4. Type dummy text in each field → click Get Link → copy the URL
-  // 5. From that URL:
-  //    - Copy the long ID string between /d/e/ and /viewform → paste into REPLACE_FORM_ID
-  //    - Each field has entry.XXXXXXXXX in the URL → paste into the matching ENTRY_ below
-
-  const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/REPLACE_FORM_ID/formResponse';
-  const ENTRY_NOME      = 'entry.REPLACE1';
-  const ENTRY_EMAIL     = 'entry.REPLACE2';
-  const ENTRY_WHATSAPP  = 'entry.REPLACE3';
-  const ENTRY_PAIS      = 'entry.REPLACE4';
+  // Google Forms submission — real entry IDs wired in
+  const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf4Rqq4Id95Y3K7Wy2JfyeQsNzzaNLsQP5m3-7pweRgh1sfLw/formResponse';
+  const ENTRY_NOME      = 'entry.1398343126';
+  const ENTRY_EMAIL     = 'entry.1865232801';
+  const ENTRY_WHATSAPP  = 'entry.1568945586';
+  const ENTRY_PAIS      = 'entry.1664089182';
 
   function submitForm() {
     const nome     = document.getElementById('f-nome').value.trim();
