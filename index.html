@@ -46,26 +46,8 @@
     .section-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.18; margin-bottom: 3.5rem; }
     .section-title em { font-style: italic; color: var(--sky); }
-
-    /* shared CTA button (dark on light backgrounds) */
-    .cta-btn {
-      display: inline-block;
-      background: var(--ocean);
-      color: var(--white);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1rem 2.5rem;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
+    .cta-btn { display: inline-block; background: var(--ocean); color: var(--white); font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.5rem; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; }
     .cta-btn:hover { background: var(--sky); transform: translateY(-2px); }
-    .cta-btn.gold { background: var(--gold); }
-    .cta-btn.gold:hover { background: #b37730; }
     .cta-center { text-align: center; margin-top: 3.5rem; }
 
     /* SELLING POINTS */
@@ -95,58 +77,6 @@
     .price-cta { display: block; margin-top: 1.8rem; text-align: center; padding: 0.75rem 1rem; background: transparent; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.6); font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; }
     .price-cta:hover, .price-card.featured .price-cta { background: var(--gold); border-color: var(--gold); color: var(--white); }
     .price-disclaimer { margin-top: 2.5rem; font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.28); font-style: italic; text-align: center; }
-    .price-section .cta-center { margin-top: 3rem; }
-
-    /* AERIAL PHOTO SECTION */
-    .aerial-section {
-      position: relative;
-      min-height: 480px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
-    .aerial-section img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .aerial-section::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(14,26,32,0.1) 0%, rgba(14,26,32,0.65) 100%);
-    }
-    .aerial-content {
-      position: relative;
-      z-index: 2;
-      padding: 4rem 8vw;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 2rem;
-    }
-    .aerial-text h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 0.6rem;
-    }
-    .aerial-text h3 em { font-style: italic; font-weight: 400; color: #f0d8b8; }
-    .aerial-text p {
-      font-size: 0.88rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.7;
-      max-width: 420px;
-    }
 
     /* FORM */
     .form-section { background: var(--ocean); }
@@ -209,71 +139,60 @@
     <p class="section-label reveal">Por que Niterói</p>
     <h2 class="section-title reveal">A cidade que o Rio<br>não consegue <em>parar de admirar.</em></h2>
 
-    <div class="points-grid" id="pointsGrid">
-
+    <div class="points-grid">
       <div class="point-card reveal">
         <div class="point-icon">🏗️</div>
         <h3>Boom imobiliário</h3>
         <p>Os lançamentos cresceram 73% em 2025 em relação a 2024, com mais de 2.900 novas unidades — e as vendas subiram 45%. O mercado está em expansão consistente.</p>
         <span class="point-source">Fonte: ADEMI Niterói, dez. 2025</span>
       </div>
-
       <div class="point-card reveal">
         <div class="point-icon">🌅</div>
         <h3>Vista única do Rio</h3>
         <p>Niterói oferece a vista mais bonita do Rio de Janeiro — o skyline, o Pão de Açúcar e o Corcovado vistos do outro lado da baía, a partir do seu próprio apartamento.</p>
         <span class="point-source">Fonte: Street Smart Brazil / Wikivoyage</span>
       </div>
-
       <div class="point-card reveal">
         <div class="point-icon">⛴️</div>
         <h3>Ferry rápido para o Rio</h3>
         <p>A travessia da Baía de Guanabara leva entre 10 e 20 minutos, com saídas frequentes da Praça XV — transporte público, não turístico. Quase 30 milhões de passageiros por ano.</p>
         <span class="point-source">Fonte: TourByTransit / Wikivoyage</span>
       </div>
-
       <div class="point-card reveal">
         <div class="point-icon">📈</div>
         <h3>IDH mais alto do estado</h3>
         <p>Niterói tem o Índice de Desenvolvimento Humano mais alto de todo o estado do Rio de Janeiro, refletindo saúde, educação e qualidade de vida acima da média nacional.</p>
         <span class="point-source">Fonte: IBGE / Fundação Getúlio Vargas</span>
       </div>
-
       <div class="point-card reveal">
         <div class="point-icon">🏖️</div>
         <h3>Praias tranquilas</h3>
         <p>Itaipu, Camboinhas, Piratininga e Itacoatiara — praias de areia branca, ondas limpas e sem a lotação de Copacabana. Acesso por ônibus ou Uber direto.</p>
         <span class="point-source">Fonte: Above Us Only Skies / Wikivoyage</span>
       </div>
-
       <div class="point-card reveal">
         <div class="point-icon">🏛️</div>
         <h3>Arquitetura de Niemeyer</h3>
         <p>O Caminho Niemeyer, na orla, reúne a segunda maior coleção de obras de Oscar Niemeyer — incluindo o icônico MAC, o "disco voador" sobre o mar.</p>
         <span class="point-source">Fonte: Street Smart Brazil</span>
       </div>
-
       <div class="point-card reveal">
         <div class="point-icon">💼</div>
         <h3>Cidade de alta renda</h3>
         <p>Segundo a FGV, Niterói tem a maior proporção de habitantes de classe A do Brasil (55,7%), e 85,9% da população nas classes A e B. Uma vizinhança de alto padrão.</p>
         <span class="point-source">Fonte: Fundação Getúlio Vargas</span>
       </div>
-
       <div class="point-card reveal">
         <div class="point-icon">🖥️</div>
         <h3>Ideal para trabalho remoto</h3>
         <p>A demanda por imóveis com espaço para home office cresceu 30% em Niterói. Para quem trabalha de qualquer lugar do mundo, é a combinação perfeita: praia, cidade e conectividade.</p>
         <span class="point-source">Fonte: The Latin Investor, 2024</span>
       </div>
-
     </div>
 
-    <!-- CTA after selling points -->
     <div class="cta-center reveal">
       <a href="#cadastro" class="cta-btn">Quero saber mais</a>
     </div>
-
   </div>
 </section>
 
@@ -285,7 +204,6 @@
     <p class="price-note reveal">Valores atualmente disponíveis no mercado. Niterói registra altas de alguns pontos percentuais ao mês.</p>
 
     <div class="price-grid">
-
       <div class="price-card reveal">
         <div class="price-type">1 Quarto</div>
         <div class="price-amount">R$ 321.999</div>
@@ -293,7 +211,6 @@
         <div class="price-desc">Unidades compactas ideais para investimento ou moradia individual, em localização privilegiada.</div>
         <a href="#cadastro" class="price-cta">Quero informações</a>
       </div>
-
       <div class="price-card reveal">
         <div class="price-type">2 Quartos</div>
         <div class="price-amount">R$ 368.500</div>
@@ -301,7 +218,6 @@
         <div class="price-desc">Excelente custo-benefício para casais ou investidores. Alta demanda de locação na região.</div>
         <a href="#cadastro" class="price-cta">Quero informações</a>
       </div>
-
       <div class="price-card featured reveal">
         <div class="price-type">2 Quartos com Suíte</div>
         <div class="price-amount">R$ 654.500</div>
@@ -309,7 +225,6 @@
         <div class="price-desc">Com vaga e vista para a baía. O equilíbrio perfeito entre conforto, localização e valorização.</div>
         <a href="#cadastro" class="price-cta">Quero informações</a>
       </div>
-
       <div class="price-card reveal">
         <div class="price-type">3 Quartos com Suíte</div>
         <div class="price-amount">R$ 795.500</div>
@@ -317,21 +232,8 @@
         <div class="price-desc">Com vaga e vista panorâmica. Espaço generoso para famílias, com acabamento de alto padrão.</div>
         <a href="#cadastro" class="price-cta">Quero informações</a>
       </div>
-
     </div>
     <p class="price-disclaimer reveal">Preços em reais brasileiros (BRL). Valores sujeitos a alteração conforme disponibilidade. Câmbio favorável para compradores em euros, kwanzas e meticais.</p>
-  </div>
-</section>
-
-<!-- AERIAL PHOTO -->
-<section class="aerial-section">
-  <img src="Niteroi_High_View.jpeg" alt="Vista aérea de Niterói — Centro e Caminho Niemeyer">
-  <div class="aerial-content">
-    <div class="aerial-text">
-      <h3>Niterói do alto —<br><em>tudo ao alcance.</em></h3>
-      <p>O Caminho Niemeyer, as barcas para o Rio, o shopping, o hospital, a universidade. Uma cidade completa, organizada, à beira da baía.</p>
-    </div>
-    <a href="#cadastro" class="cta-btn gold">Quero saber mais</a>
   </div>
 </section>
 
@@ -398,12 +300,14 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // ── Google Forms submission ──────────────────────────────────────────────
-  // SETUP (do when you create the Google Form):
-  // 1. Create form at forms.google.com with fields: Nome, Email, WhatsApp, País
-  // 2. Click ⋮ → Get pre-filled link → fill dummy values → Get Link
-  // 3. From that URL extract:
-  //    - Replace REPLACE_FORM_ID with your form's ID (long string after /d/e/)
-  //    - Replace entry.REPLACE1..4 with the actual entry.XXXXXXXXX numbers from the URL
+  // SETUP — do this when you create the Google Form:
+  // 1. Go to forms.google.com → new form
+  // 2. Add four Short Answer questions: Nome, Email, WhatsApp, País
+  // 3. Click ⋮ (top right) → Get pre-filled link
+  // 4. Type dummy text in each field → click Get Link → copy the URL
+  // 5. From that URL:
+  //    - Copy the long ID string between /d/e/ and /viewform → paste into REPLACE_FORM_ID
+  //    - Each field has entry.XXXXXXXXX in the URL → paste into the matching ENTRY_ below
 
   const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/REPLACE_FORM_ID/formResponse';
   const ENTRY_NOME      = 'entry.REPLACE1';
