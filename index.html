@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Viva em Niterói — Seu Imóvel no Brasil</title>
+  <title>Viva em Niteroi -- Seu Imovel no Brasil</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -98,13 +98,15 @@
     .submit-btn { margin-top: 0.6rem; padding: 1.1rem 3rem; background: var(--gold); color: var(--white); border: none; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; align-self: flex-start; transition: background 0.2s, transform 0.2s; }
     .submit-btn:hover { background: #b37730; transform: translateY(-2px); }
     .form-note { margin-top: 1.2rem; font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.35); line-height: 1.6; }
-    .success-msg { display: none; padding: 1.5rem 2rem; background: rgba(255,255,255,0.1); border-left: 4px solid var(--gold); color: var(--white); font-size: 0.95rem; line-height: 1.7; margin-top: 1.5rem; }
 
     /* FOOTER */
     footer { background: var(--ink); padding: 2.5rem 8vw; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
     .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
     .footer-brand span { color: var(--gold); }
     .footer-copy { font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.3); }
+
+    /* THANK YOU banner (shown after redirect back) */
+    .obrigado-banner { display: none; background: var(--gold); color: var(--white); text-align: center; padding: 1rem 2rem; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; }
 
     /* ANIMATIONS */
     @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
@@ -114,13 +116,18 @@
 </head>
 <body>
 
+<!-- Thank you banner shown after form redirect -->
+<div class="obrigado-banner" id="obrigadoBanner">
+  Obrigado pelo seu cadastro! Entraremos em contato em breve.
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img"></div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Niterói · Rio de Janeiro · Brasil</span>
-    <h1>O seu próximo lar,<br><em>do outro lado<br>do oceano.</em></h1>
-    <p class="hero-sub">Niterói combina qualidade de vida incomparável, praias tranquilas e acesso rápido ao Rio — com imóveis novos a preços que nenhuma outra cidade lusófona pode oferecer.</p>
+    <span class="hero-eyebrow">Niteroi - Rio de Janeiro - Brasil</span>
+    <h1>O seu proximo lar,<br><em>do outro lado<br>do oceano.</em></h1>
+    <p class="hero-sub">Niteroi combina qualidade de vida incomparavel, praias tranquilas e acesso rapido ao Rio com imoveis novos a precos que nenhuma outra cidade lusofona pode oferecer.</p>
     <a href="#cadastro" class="hero-btn">Quero saber mais</a>
   </div>
 </section>
@@ -128,7 +135,7 @@
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stat reveal"><div class="stat-num">20min</div><div class="stat-label">De ferry para o<br>centro do Rio</div></div>
-  <div class="stat reveal"><div class="stat-num">+73%</div><div class="stat-label">Crescimento em<br>lançamentos 2025</div></div>
+  <div class="stat reveal"><div class="stat-num">+73%</div><div class="stat-label">Crescimento em<br>lancamentos 2025</div></div>
   <div class="stat reveal"><div class="stat-num">#1</div><div class="stat-label">IDH mais alto<br>do estado do RJ</div></div>
   <div class="stat reveal"><div class="stat-num">+56%</div><div class="stat-label">Alta no valor<br>do aluguel em 4 anos</div></div>
 </div>
@@ -136,60 +143,58 @@
 <!-- SELLING POINTS -->
 <section class="points-bg">
   <div class="section-wrap">
-    <p class="section-label reveal">Por que Niterói</p>
-    <h2 class="section-title reveal">A cidade que o Rio<br>não consegue <em>parar de admirar.</em></h2>
-
+    <p class="section-label reveal">Por que Niteroi</p>
+    <h2 class="section-title reveal">A cidade que o Rio<br>nao consegue <em>parar de admirar.</em></h2>
     <div class="points-grid">
       <div class="point-card reveal">
-        <div class="point-icon">🏗️</div>
-        <h3>Boom imobiliário</h3>
-        <p>Os lançamentos cresceram 73% em 2025 em relação a 2024, com mais de 2.900 novas unidades — e as vendas subiram 45%. O mercado está em expansão consistente.</p>
-        <span class="point-source">Fonte: ADEMI Niterói, dez. 2025</span>
+        <div class="point-icon">&#127959;</div>
+        <h3>Boom imobiliario</h3>
+        <p>Os lancamentos cresceram 73% em 2025 em relacao a 2024, com mais de 2.900 novas unidades e as vendas subiram 45%. O mercado esta em expansao consistente.</p>
+        <span class="point-source">Fonte: ADEMI Niteroi, dez. 2025</span>
       </div>
       <div class="point-card reveal">
-        <div class="point-icon">🌅</div>
-        <h3>Vista única do Rio</h3>
-        <p>Niterói oferece a vista mais bonita do Rio de Janeiro — o skyline, o Pão de Açúcar e o Corcovado vistos do outro lado da baía, a partir do seu próprio apartamento.</p>
+        <div class="point-icon">&#127749;</div>
+        <h3>Vista unica do Rio</h3>
+        <p>Niteroi oferece a vista mais bonita do Rio de Janeiro: o skyline, o Pao de Acucar e o Corcovado vistos do outro lado da baia, a partir do seu proprio apartamento.</p>
         <span class="point-source">Fonte: Street Smart Brazil / Wikivoyage</span>
       </div>
       <div class="point-card reveal">
-        <div class="point-icon">⛴️</div>
-        <h3>Ferry rápido para o Rio</h3>
-        <p>A travessia da Baía de Guanabara leva entre 10 e 20 minutos, com saídas frequentes da Praça XV — transporte público, não turístico. Quase 30 milhões de passageiros por ano.</p>
+        <div class="point-icon">&#9972;</div>
+        <h3>Ferry rapido para o Rio</h3>
+        <p>A travessia da Baia de Guanabara leva entre 10 e 20 minutos, com saidas frequentes da Praca XV: transporte publico, nao turistico. Quase 30 milhoes de passageiros por ano.</p>
         <span class="point-source">Fonte: TourByTransit / Wikivoyage</span>
       </div>
       <div class="point-card reveal">
-        <div class="point-icon">📈</div>
+        <div class="point-icon">&#128200;</div>
         <h3>IDH mais alto do estado</h3>
-        <p>Niterói tem o Índice de Desenvolvimento Humano mais alto de todo o estado do Rio de Janeiro, refletindo saúde, educação e qualidade de vida acima da média nacional.</p>
-        <span class="point-source">Fonte: IBGE / Fundação Getúlio Vargas</span>
+        <p>Niteroi tem o Indice de Desenvolvimento Humano mais alto de todo o estado do Rio de Janeiro, refletindo saude, educacao e qualidade de vida acima da media nacional.</p>
+        <span class="point-source">Fonte: IBGE / Fundacao Getulio Vargas</span>
       </div>
       <div class="point-card reveal">
-        <div class="point-icon">🏖️</div>
+        <div class="point-icon">&#127958;</div>
         <h3>Praias tranquilas</h3>
-        <p>Itaipu, Camboinhas, Piratininga e Itacoatiara — praias de areia branca, ondas limpas e sem a lotação de Copacabana. Acesso por ônibus ou Uber direto.</p>
+        <p>Itaipu, Camboinhas, Piratininga e Itacoatiara: praias de areia branca, ondas limpas e sem a lotacao de Copacabana. Acesso por onibus ou Uber direto.</p>
         <span class="point-source">Fonte: Above Us Only Skies / Wikivoyage</span>
       </div>
       <div class="point-card reveal">
-        <div class="point-icon">🏛️</div>
+        <div class="point-icon">&#127963;</div>
         <h3>Arquitetura de Niemeyer</h3>
-        <p>O Caminho Niemeyer, na orla, reúne a segunda maior coleção de obras de Oscar Niemeyer — incluindo o icônico MAC, o "disco voador" sobre o mar.</p>
+        <p>O Caminho Niemeyer, na orla, reune a segunda maior colecao de obras de Oscar Niemeyer, incluindo o iconico MAC, o "disco voador" sobre o mar.</p>
         <span class="point-source">Fonte: Street Smart Brazil</span>
       </div>
       <div class="point-card reveal">
-        <div class="point-icon">💼</div>
+        <div class="point-icon">&#128188;</div>
         <h3>Cidade de alta renda</h3>
-        <p>Segundo a FGV, Niterói tem a maior proporção de habitantes de classe A do Brasil (55,7%), e 85,9% da população nas classes A e B. Uma vizinhança de alto padrão.</p>
-        <span class="point-source">Fonte: Fundação Getúlio Vargas</span>
+        <p>Segundo a FGV, Niteroi tem a maior proporcao de habitantes de classe A do Brasil (55,7%), e 85,9% da populacao nas classes A e B. Uma vizinhanca de alto padrao.</p>
+        <span class="point-source">Fonte: Fundacao Getulio Vargas</span>
       </div>
       <div class="point-card reveal">
-        <div class="point-icon">🖥️</div>
+        <div class="point-icon">&#128187;</div>
         <h3>Ideal para trabalho remoto</h3>
-        <p>A demanda por imóveis com espaço para home office cresceu 30% em Niterói. Para quem trabalha de qualquer lugar do mundo, é a combinação perfeita: praia, cidade e conectividade.</p>
+        <p>A demanda por imoveis com espaco para home office cresceu 30% em Niteroi. Para quem trabalha de qualquer lugar do mundo, e a combinacao perfeita: praia, cidade e conectividade.</p>
         <span class="point-source">Fonte: The Latin Investor, 2024</span>
       </div>
     </div>
-
     <div class="cta-center reveal">
       <a href="#cadastro" class="cta-btn">Quero saber mais</a>
     </div>
@@ -199,40 +204,40 @@
 <!-- PRICES -->
 <section class="price-section">
   <div class="section-wrap">
-    <p class="section-label reveal">Imóveis disponíveis</p>
-    <h2 class="section-title reveal">Preços atuais —<br><em>em constante valorização.</em></h2>
-    <p class="price-note reveal">Valores atualmente disponíveis no mercado. Niterói registra altas de alguns pontos percentuais ao mês.</p>
+    <p class="section-label reveal">Imoveis disponiveis</p>
+    <h2 class="section-title reveal">Precos atuais --<br><em>em constante valorizacao.</em></h2>
+    <p class="price-note reveal">Valores atualmente disponiveis no mercado. Niteroi registra altas de alguns pontos percentuais ao mes.</p>
     <div class="price-grid">
       <div class="price-card reveal">
         <div class="price-type">1 Quarto</div>
         <div class="price-amount">R$ 321.999</div>
         <span class="price-from">atualmente a partir de</span>
-        <div class="price-desc">Unidades compactas ideais para investimento ou moradia individual, em localização privilegiada.</div>
-        <a href="#cadastro" class="price-cta">Quero informações</a>
+        <div class="price-desc">Unidades compactas ideais para investimento ou moradia individual, em localizacao privilegiada.</div>
+        <a href="#cadastro" class="price-cta">Quero informacoes</a>
       </div>
       <div class="price-card reveal">
         <div class="price-type">2 Quartos</div>
         <div class="price-amount">R$ 368.500</div>
         <span class="price-from">atualmente a partir de</span>
-        <div class="price-desc">Excelente custo-benefício para casais ou investidores. Alta demanda de locação na região.</div>
-        <a href="#cadastro" class="price-cta">Quero informações</a>
+        <div class="price-desc">Excelente custo-beneficio para casais ou investidores. Alta demanda de locacao na regiao.</div>
+        <a href="#cadastro" class="price-cta">Quero informacoes</a>
       </div>
       <div class="price-card featured reveal">
-        <div class="price-type">2 Quartos com Suíte</div>
+        <div class="price-type">2 Quartos com Suite</div>
         <div class="price-amount">R$ 654.500</div>
         <span class="price-from">atualmente a partir de</span>
-        <div class="price-desc">Com vaga e vista para a baía. O equilíbrio perfeito entre conforto, localização e valorização.</div>
-        <a href="#cadastro" class="price-cta">Quero informações</a>
+        <div class="price-desc">Com vaga e vista para a baia. O equilibrio perfeito entre conforto, localizacao e valorizacao.</div>
+        <a href="#cadastro" class="price-cta">Quero informacoes</a>
       </div>
       <div class="price-card reveal">
-        <div class="price-type">3 Quartos com Suíte</div>
+        <div class="price-type">3 Quartos com Suite</div>
         <div class="price-amount">R$ 795.500</div>
         <span class="price-from">atualmente a partir de</span>
-        <div class="price-desc">Com vaga e vista panorâmica. Espaço generoso para famílias, com acabamento de alto padrão.</div>
-        <a href="#cadastro" class="price-cta">Quero informações</a>
+        <div class="price-desc">Com vaga e vista panoramica. Espaco generoso para familias, com acabamento de alto padrao.</div>
+        <a href="#cadastro" class="price-cta">Quero informacoes</a>
       </div>
     </div>
-    <p class="price-disclaimer reveal">Preços em reais brasileiros (BRL). Valores sujeitos a alteração conforme disponibilidade. Câmbio favorável para compradores em euros, kwanzas e meticais.</p>
+    <p class="price-disclaimer reveal">Precos em reais brasileiros (BRL). Valores sujeitos a alteracao conforme disponibilidade. Cambio favoravel para compradores em euros, kwanzas e meticais.</p>
   </div>
 </section>
 
@@ -241,22 +246,24 @@
   <div class="section-wrap">
     <div class="form-inner">
       <p class="section-label">Cadastre-se</p>
-      <h2 class="section-title">Receba informações<br><em>sem compromisso.</em></h2>
-      <p class="form-intro">Deixe seu contato e enviaremos informações sobre imóveis disponíveis em Niterói. Sem spam, sem pressão — só o que for relevante para você.</p>
+      <h2 class="section-title">Receba informacoes<br><em>sem compromisso.</em></h2>
+      <p class="form-intro">Deixe seu contato e enviaremos informacoes sobre imoveis disponiveis em Niteroi. Sem spam, sem pressao: so o que for relevante para voce.</p>
 
-      <div class="form-grid" id="leadForm">
+      <form class="form-grid" action="https://formspree.io/f/xrejnbvk" method="POST">
+        <input type="hidden" name="_next" value="https://jazzdinosaur.github.io/niteroi-imoveis/?obrigado=1">
+        <input type="hidden" name="_subject" value="Novo cadastro Viva em Niteroi">
         <div class="field-row">
           <div class="field">
             <label>Nome <span class="req">*</span></label>
-            <input type="text" id="f-nome" placeholder="Seu nome completo">
+            <input type="text" name="nome" placeholder="Seu nome completo" required>
           </div>
           <div class="field">
-            <label>País <span class="opt">(opcional)</span></label>
-            <select id="f-pais">
+            <label>Pais <span class="opt">(opcional)</span></label>
+            <select name="pais">
               <option value="">Selecione...</option>
               <option>Angola</option>
               <option>Portugal</option>
-              <option>Moçambique</option>
+              <option>Mocambique</option>
               <option>Cabo Verde</option>
               <option>Brasil</option>
               <option>Outro</option>
@@ -264,31 +271,26 @@
           </div>
         </div>
         <div class="field">
-          <label>E-mail <span class="req">*</span><span class="opt">(ou WhatsApp abaixo)</span></label>
-          <input type="email" id="f-email" placeholder="seu@email.com">
+          <label>E-mail <span class="opt">(ou WhatsApp abaixo)</span></label>
+          <input type="email" name="email" placeholder="seu@email.com">
         </div>
         <div class="field">
-          <label>WhatsApp <span class="opt">(opcional — com código do país)</span></label>
-          <input type="tel" id="f-whatsapp" placeholder="+244 912 345 678">
+          <label>WhatsApp <span class="opt">(opcional - com codigo do pais)</span></label>
+          <input type="tel" name="whatsapp" placeholder="+244 912 345 678">
         </div>
         <div>
-          <button class="submit-btn" onclick="submitForm()">Enviar cadastro</button>
+          <button type="submit" class="submit-btn">Enviar cadastro</button>
         </div>
-        <p class="form-note">Seus dados são usados apenas para envio de informações sobre imóveis em Niterói. Você pode cancelar a qualquer momento.</p>
-      </div>
-
-      <div class="success-msg" id="successMsg">
-        ✅ <strong>Cadastro recebido!</strong><br>
-        Obrigado pelo interesse. Entraremos em contato em breve com informações sobre imóveis em Niterói.
-      </div>
+        <p class="form-note">Seus dados sao usados apenas para envio de informacoes sobre imoveis em Niteroi. Voce pode cancelar a qualquer momento.</p>
+      </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">Viva em <span>Niterói</span></div>
-  <div class="footer-copy">© 2025 · Informações sobre imóveis em Niterói, RJ, Brasil</div>
+  <div class="footer-brand">Viva em <span>Niteroi</span></div>
+  <div class="footer-copy">2025 - Informacoes sobre imoveis em Niteroi, RJ, Brasil</div>
 </footer>
 
 <script>
@@ -298,46 +300,10 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Formspree submission — standard form POST with JSON accept header
-  async function submitForm() {
-    const nome     = document.getElementById('f-nome').value.trim();
-    const email    = document.getElementById('f-email').value.trim();
-    const whatsapp = document.getElementById('f-whatsapp').value.trim();
-    const pais     = document.getElementById('f-pais').value;
-
-    if (!nome)               { alert('Por favor, informe seu nome.'); return; }
-    if (!email && !whatsapp) { alert('Por favor, informe seu e-mail ou WhatsApp.'); return; }
-
-    const btn = document.querySelector('.submit-btn');
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-
-    const data = new FormData();
-    data.append('nome',     nome);
-    data.append('email',    email);
-    data.append('whatsapp', whatsapp);
-    data.append('pais',     pais);
-
-    try {
-      const res = await fetch('https://formspree.io/f/xrejnbvk', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: data
-      });
-
-      if (res.ok) {
-        document.getElementById('leadForm').style.display = 'none';
-        document.getElementById('successMsg').style.display = 'block';
-      } else {
-        btn.textContent = 'Enviar cadastro';
-        btn.disabled = false;
-        alert('Ocorreu um erro. Por favor, tente novamente.');
-      }
-    } catch(e) {
-      btn.textContent = 'Enviar cadastro';
-      btn.disabled = false;
-      alert('Ocorreu um erro. Por favor, tente novamente.');
-    }
+  // Show thank-you banner if redirected back after form submission
+  if (window.location.search.includes('obrigado=1')) {
+    document.getElementById('obrigadoBanner').style.display = 'block';
+    window.scrollTo(0, 0);
   }
 </script>
 </body>
