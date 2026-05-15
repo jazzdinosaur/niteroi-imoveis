@@ -298,7 +298,7 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Formspree submission
+  // Formspree submission — standard form POST with JSON accept header
   async function submitForm() {
     const nome     = document.getElementById('f-nome').value.trim();
     const email    = document.getElementById('f-email').value.trim();
@@ -312,11 +312,17 @@
     btn.textContent = 'Enviando...';
     btn.disabled = true;
 
+    const data = new FormData();
+    data.append('nome',     nome);
+    data.append('email',    email);
+    data.append('whatsapp', whatsapp);
+    data.append('pais',     pais);
+
     try {
       const res = await fetch('https://formspree.io/f/xrejnbvk', {
         method: 'POST',
-        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, whatsapp, pais })
+        headers: { 'Accept': 'application/json' },
+        body: data
       });
 
       if (res.ok) {
