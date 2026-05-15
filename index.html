@@ -7,324 +7,136 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --ink:    #0e1a20;
-      --ocean:  #1b4f63;
-      --sky:    #3a8fa8;
-      --foam:   #e8f4f8;
-      --gold:   #c8893a;
-      --sand:   #f5ede0;
-      --white:  #ffffff;
-      --muted:  #5a6a72;
+      --ink:   #0e1a20;
+      --ocean: #1b4f63;
+      --sky:   #3a8fa8;
+      --gold:  #c8893a;
+      --sand:  #f5ede0;
+      --white: #ffffff;
+      --muted: #5a6a72;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Jost', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
 
-    /* ─── HERO ─── */
-    .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 600px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      background: url('Niteroi_Stock.jpg') center center / cover no-repeat;
-    }
-    .hero-img::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(14,26,32,0.15) 0%,
-        rgba(14,26,32,0.20) 40%,
-        rgba(14,26,32,0.78) 100%
-      );
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 0 8vw 6vh;
-      max-width: 860px;
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(200,137,58,0.5);
-      padding: 0.3rem 0.9rem;
-      margin-bottom: 1.6rem;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.3s forwards;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 6.5vw, 5.8rem);
-      font-weight: 700;
-      line-height: 1.07;
-      color: var(--white);
-      margin-bottom: 1.4rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.5s forwards;
-    }
-    .hero h1 em {
-      font-style: italic;
-      font-weight: 400;
-      color: #f0d8b8;
-    }
-    .hero-sub {
-      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-      font-weight: 300;
-      color: rgba(255,255,255,0.82);
-      line-height: 1.75;
-      max-width: 560px;
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.7s forwards;
-    }
-    .hero-btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--white);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1rem 2.5rem;
-      border: none;
-      cursor: pointer;
-      transition: background 0.25s, transform 0.2s;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.9s forwards;
-    }
+    /* HERO */
+    .hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-img { position: absolute; inset: 0; background: url('Niteroi_Stock.jpg') center center / cover no-repeat; }
+    .hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,26,32,0.15) 0%, rgba(14,26,32,0.20) 40%, rgba(14,26,32,0.78) 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 8vw 6vh; max-width: 860px; }
+    .hero-eyebrow { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(200,137,58,0.5); padding: 0.3rem 0.9rem; margin-bottom: 1.6rem; opacity: 0; animation: fadeUp 0.7s 0.3s forwards; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6.5vw, 5.8rem); font-weight: 700; line-height: 1.07; color: var(--white); margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+    .hero h1 em { font-style: italic; font-weight: 400; color: #f0d8b8; }
+    .hero-sub { font-size: clamp(0.95rem, 1.5vw, 1.15rem); font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.75; max-width: 560px; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
+    .hero-btn { display: inline-block; background: var(--gold); color: var(--white); font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.5rem; border: none; cursor: pointer; transition: background 0.25s, transform 0.2s; opacity: 0; animation: fadeUp 0.8s 0.9s forwards; }
     .hero-btn:hover { background: #b37730; transform: translateY(-3px); }
 
-    /* ─── STATS BAR ─── */
-    .stats-bar {
-      background: var(--ocean);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
+    /* STATS */
+    .stats-bar { background: var(--ocean); display: grid; grid-template-columns: repeat(4, 1fr); }
     @media(max-width:700px){ .stats-bar { grid-template-columns: repeat(2,1fr); } }
-    .stat {
-      padding: 2.2rem 1.5rem;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.1);
-    }
+    .stat { padding: 2.2rem 1.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
     .stat:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .stat-label {
-      margin-top: 0.45rem;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.4;
-    }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .stat-label { margin-top: 0.45rem; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); line-height: 1.4; }
 
-    /* ─── SECTION SHARED ─── */
+    /* SHARED */
     .section-wrap { padding: 6rem 8vw; }
-    .section-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 3.5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.18;
-      margin-bottom: 3.5rem;
-    }
+    .section-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.18; margin-bottom: 3.5rem; }
     .section-title em { font-style: italic; color: var(--sky); }
 
-    /* ─── SELLING POINTS GRID ─── */
+    /* SELLING POINTS */
     .points-bg { background: var(--sand); }
-    .points-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    .point-card {
-      background: var(--white);
-      padding: 2rem 1.8rem;
-      border-top: 3px solid var(--gold);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .point-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+    .points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .point-card { background: var(--white); padding: 2rem 1.8rem; border-top: 3px solid var(--gold); transition: transform 0.2s, box-shadow 0.2s; cursor: default; }
+    .point-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.10); }
     .point-icon { font-size: 1.7rem; margin-bottom: 1rem; }
-    .point-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-    .point-card p {
-      font-size: 0.88rem;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--muted);
-    }
-    .point-source {
-      display: block;
-      margin-top: 0.8rem;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sky);
-      opacity: 0.8;
-    }
+    .point-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .point-card p { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: var(--muted); }
+    .point-source { display: block; margin-top: 0.8rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); opacity: 0.8; }
 
-    /* ─── FORM SECTION ─── */
-    .form-section { background: var(--ocean); }
-    .form-inner {
-      max-width: 680px;
-      margin: 0 auto;
+    /* AERIAL TOOLTIP */
+    .aerial-tooltip {
+      display: none;
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 360px;
+      max-width: 88vw;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      z-index: 200;
+      pointer-events: none;
+      animation: tooltipFade 0.2s ease;
     }
+    .aerial-tooltip img { width: 100%; display: block; }
+    .aerial-tooltip-cap { background: var(--ink); padding: 0.6rem 1rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    @keyframes tooltipFade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+    /* PRICES */
+    .price-section { background: var(--ink); }
+    .price-section .section-label { color: rgba(255,255,255,0.4); }
+    .price-section .section-title { color: var(--white); }
+    .price-note { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,0.4); margin-top: -2.5rem; margin-bottom: 3rem; font-style: italic; }
+    .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.2rem; }
+    .price-card { border: 1px solid rgba(255,255,255,0.1); padding: 2.2rem 1.8rem; background: rgba(255,255,255,0.03); position: relative; transition: border-color 0.2s, transform 0.2s; }
+    .price-card:hover { border-color: rgba(200,137,58,0.5); transform: translateY(-4px); }
+    .price-card.featured { border-color: var(--gold); background: rgba(200,137,58,0.07); }
+    .price-card.featured::before { content: 'Mais procurado'; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--white); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.25rem 0.9rem; white-space: nowrap; }
+    .price-type { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .price-amount { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.2vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 0.35rem; }
+    .price-from { font-size: 0.65rem; font-weight: 400; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1.2rem; }
+    .price-desc { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .price-cta { display: block; margin-top: 1.8rem; text-align: center; padding: 0.75rem 1rem; background: transparent; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.6); font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; }
+    .price-cta:hover, .price-card.featured .price-cta { background: var(--gold); border-color: var(--gold); color: var(--white); }
+    .price-disclaimer { margin-top: 2.5rem; font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.28); font-style: italic; text-align: center; }
+
+    /* FORM */
+    .form-section { background: var(--ocean); }
+    .form-inner { max-width: 680px; margin: 0 auto; }
     .form-section .section-label { color: rgba(255,255,255,0.5); }
     .form-section .section-title { color: var(--white); margin-bottom: 0.8rem; }
-    .form-intro {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-    }
-
+    .form-intro { font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 2.5rem; }
     .form-grid { display: flex; flex-direction: column; gap: 1.1rem; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
     @media(max-width:560px){ .field-row { grid-template-columns: 1fr; } }
-
     .field { display: flex; flex-direction: column; }
-    .field label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 0.5rem;
-    }
+    .field label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
     .field label .req { color: var(--gold); margin-left: 2px; }
     .field label .opt { color: rgba(255,255,255,0.3); font-size:0.6rem; font-weight:400; letter-spacing:0; text-transform:none; margin-left:4px; }
-    .field input,
-    .field select {
-      padding: 0.85rem 1rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: var(--white);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 300;
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
-      -webkit-appearance: none;
-      appearance: none;
-    }
+    .field input, .field select { padding: 0.85rem 1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: var(--white); font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300; outline: none; transition: border-color 0.2s, background 0.2s; -webkit-appearance: none; appearance: none; }
     .field input::placeholder { color: rgba(255,255,255,0.3); }
-    .field input:focus,
-    .field select:focus { border-color: var(--gold); background: rgba(255,255,255,0.12); }
+    .field input:focus, .field select:focus { border-color: var(--gold); background: rgba(255,255,255,0.12); }
     .field select option { background: var(--ocean); color: var(--white); }
-
-    .submit-btn {
-      margin-top: 0.6rem;
-      padding: 1.1rem 3rem;
-      background: var(--gold);
-      color: var(--white);
-      border: none;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      cursor: pointer;
-      align-self: flex-start;
-      transition: background 0.2s, transform 0.2s;
-    }
+    .submit-btn { margin-top: 0.6rem; padding: 1.1rem 3rem; background: var(--gold); color: var(--white); border: none; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; align-self: flex-start; transition: background 0.2s, transform 0.2s; }
     .submit-btn:hover { background: #b37730; transform: translateY(-2px); }
+    .form-note { margin-top: 1.2rem; font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.35); line-height: 1.6; }
+    .success-msg { display: none; padding: 1.5rem 2rem; background: rgba(255,255,255,0.1); border-left: 4px solid var(--gold); color: var(--white); font-size: 0.95rem; line-height: 1.7; margin-top: 1.5rem; }
 
-    .form-note {
-      margin-top: 1.2rem;
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.35);
-      line-height: 1.6;
-    }
-
-    .success-msg {
-      display: none;
-      padding: 1.5rem 2rem;
-      background: rgba(255,255,255,0.1);
-      border-left: 4px solid var(--gold);
-      color: var(--white);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-top: 1.5rem;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--ink);
-      padding: 2.5rem 8vw;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 0.04em;
-    }
+    /* FOOTER */
+    footer { background: var(--ink); padding: 2.5rem 8vw; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
     .footer-brand span { color: var(--gold); }
-    .footer-copy {
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.3);
-    }
+    .footer-copy { font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.3); }
 
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .reveal { opacity:0; transform:translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
   </style>
 </head>
 <body>
 
-<!-- ══ HERO ══ -->
+<!-- Aerial tooltip (shared, shown on selling-point card hover) -->
+<div class="aerial-tooltip" id="aerialTooltip">
+  <img src="Niteroi_High_View.jpeg" alt="Vista aérea de Niterói">
+  <div class="aerial-tooltip-cap">Vista aérea — Centro e Caminho Niemeyer</div>
+</div>
+
+<!-- HERO -->
 <section class="hero">
   <div class="hero-img"></div>
   <div class="hero-content">
@@ -335,33 +147,20 @@
   </div>
 </section>
 
-<!-- ══ STATS ══ -->
+<!-- STATS -->
 <div class="stats-bar">
-  <div class="stat reveal">
-    <div class="stat-num">20min</div>
-    <div class="stat-label">De ferry para o<br>centro do Rio</div>
-  </div>
-  <div class="stat reveal">
-    <div class="stat-num">+73%</div>
-    <div class="stat-label">Crescimento em<br>lançamentos 2025</div>
-  </div>
-  <div class="stat reveal">
-    <div class="stat-num">#1</div>
-    <div class="stat-label">IDH mais alto<br>do estado do RJ</div>
-  </div>
-  <div class="stat reveal">
-    <div class="stat-num">+56%</div>
-    <div class="stat-label">Alta no valor<br>do aluguel em 4 anos</div>
-  </div>
+  <div class="stat reveal"><div class="stat-num">20min</div><div class="stat-label">De ferry para o<br>centro do Rio</div></div>
+  <div class="stat reveal"><div class="stat-num">+73%</div><div class="stat-label">Crescimento em<br>lançamentos 2025</div></div>
+  <div class="stat reveal"><div class="stat-num">#1</div><div class="stat-label">IDH mais alto<br>do estado do RJ</div></div>
+  <div class="stat reveal"><div class="stat-num">+56%</div><div class="stat-label">Alta no valor<br>do aluguel em 4 anos</div></div>
 </div>
 
-<!-- ══ SELLING POINTS ══ -->
+<!-- SELLING POINTS -->
 <section class="points-bg">
   <div class="section-wrap">
     <p class="section-label reveal">Por que Niterói</p>
     <h2 class="section-title reveal">A cidade que o Rio<br>não consegue <em>parar de admirar.</em></h2>
-
-    <div class="points-grid">
+    <div class="points-grid" id="pointsGrid">
 
       <div class="point-card reveal">
         <div class="point-icon">🏗️</div>
@@ -387,7 +186,7 @@
       <div class="point-card reveal">
         <div class="point-icon">📈</div>
         <h3>IDH mais alto do estado</h3>
-        <p>Niterói tem o Índice de Desenvolvimento Humano mais alto de todo o estado do Rio de Janeiro — e o sétimo mais alto do Brasil — refletindo saúde, educação e qualidade de vida.</p>
+        <p>Niterói tem o Índice de Desenvolvimento Humano mais alto de todo o estado do Rio de Janeiro, refletindo saúde, educação e qualidade de vida acima da média nacional.</p>
         <span class="point-source">Fonte: IBGE / Fundação Getúlio Vargas</span>
       </div>
 
@@ -401,7 +200,7 @@
       <div class="point-card reveal">
         <div class="point-icon">🏛️</div>
         <h3>Arquitetura de Niemeyer</h3>
-        <p>O Caminho Niemeyer, na orla, reúne a segunda maior coleção de obras do arquiteto Oscar Niemeyer fora de Brasília — incluindo o icônico MAC, o "disco voador" sobre o mar.</p>
+        <p>O Caminho Niemeyer, na orla, reúne a segunda maior coleção de obras de Oscar Niemeyer — incluindo o icônico MAC, o "disco voador" sobre o mar.</p>
         <span class="point-source">Fonte: Street Smart Brazil</span>
       </div>
 
@@ -409,7 +208,7 @@
         <div class="point-icon">💼</div>
         <h3>Cidade de alta renda</h3>
         <p>Segundo a FGV, Niterói tem a maior proporção de habitantes de classe A do Brasil (55,7%), e 85,9% da população nas classes A e B. Uma vizinhança de alto padrão.</p>
-        <span class="point-source">Fonte: Fundação Getúlio Vargas, 2011</span>
+        <span class="point-source">Fonte: Fundação Getúlio Vargas</span>
       </div>
 
       <div class="point-card reveal">
@@ -423,7 +222,53 @@
   </div>
 </section>
 
-<!-- ══ FORM ══ -->
+<!-- PRICES -->
+<section class="price-section">
+  <div class="section-wrap">
+    <p class="section-label reveal">Imóveis disponíveis</p>
+    <h2 class="section-title reveal">Preços atuais —<br><em>em constante valorização.</em></h2>
+    <p class="price-note reveal">Valores atualmente disponíveis no mercado. Niterói registra altas de alguns pontos percentuais ao mês.</p>
+
+    <div class="price-grid">
+
+      <div class="price-card reveal">
+        <div class="price-type">1 Quarto</div>
+        <div class="price-amount">R$ 321.999</div>
+        <span class="price-from">atualmente a partir de</span>
+        <div class="price-desc">Unidades compactas ideais para investimento ou moradia individual, em localização privilegiada.</div>
+        <a href="#cadastro" class="price-cta">Quero informações</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-type">2 Quartos</div>
+        <div class="price-amount">R$ 368.500</div>
+        <span class="price-from">atualmente a partir de</span>
+        <div class="price-desc">Excelente custo-benefício para casais ou investidores. Alta demanda de locação na região.</div>
+        <a href="#cadastro" class="price-cta">Quero informações</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <div class="price-type">2 Quartos com Suíte</div>
+        <div class="price-amount">R$ 654.500</div>
+        <span class="price-from">atualmente a partir de</span>
+        <div class="price-desc">Com vaga e vista para a baía. O equilíbrio perfeito entre conforto, localização e valorização.</div>
+        <a href="#cadastro" class="price-cta">Quero informações</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-type">3 Quartos com Suíte</div>
+        <div class="price-amount">R$ 795.500</div>
+        <span class="price-from">atualmente a partir de</span>
+        <div class="price-desc">Com vaga e vista panorâmica. Espaço generoso para famílias, com acabamento de alto padrão.</div>
+        <a href="#cadastro" class="price-cta">Quero informações</a>
+      </div>
+
+    </div>
+    <p class="price-disclaimer reveal">Preços em reais brasileiros (BRL). Valores sujeitos a alteração conforme disponibilidade. Câmbio favorável para compradores em euros, kwanzas e meticais.</p>
+  </div>
+</section>
+
+<!-- FORM -->
 <section class="form-section" id="cadastro">
   <div class="section-wrap">
     <div class="form-inner">
@@ -472,7 +317,7 @@
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-brand">Viva em <span>Niterói</span></div>
   <div class="footer-copy">© 2025 · Informações sobre imóveis em Niterói, RJ, Brasil</div>
@@ -481,20 +326,72 @@
 <script>
   // Scroll reveal
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Form submit — placeholder for Mailchimp integration
-  function submitForm() {
-    const nome = document.getElementById('f-nome').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const whatsapp = document.getElementById('f-whatsapp').value.trim();
+  // Aerial photo tooltip — appears bottom-right when hovering any selling point card
+  const tooltip = document.getElementById('aerialTooltip');
+  document.querySelectorAll('#pointsGrid .point-card').forEach(card => {
+    card.addEventListener('mouseenter', () => { tooltip.style.display = 'block'; });
+    card.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+  });
 
-    if (!nome) { alert('Por favor, informe seu nome.'); return; }
+  // ── Google Forms submission ──────────────────────────────────────────────
+  // SETUP INSTRUCTIONS (do this tomorrow when you create the Google Form):
+  //
+  // 1. Go to forms.google.com → create a new form
+  // 2. Add four questions: Nome (short answer), Email (short answer),
+  //    WhatsApp (short answer), País (dropdown)
+  // 3. Click the 3-dot menu (⋮) → Get pre-filled link
+  // 4. Fill dummy text in each field → click "Get Link" → copy the URL
+  // 5. Paste that URL here and extract the parts:
+  //    - The base URL up to /formResponse  → put in GOOGLE_FORM_URL
+  //    - Each entry.XXXXXXXXXX number      → put in the matching ENTRY_ variable
+  //
+  // Example pre-filled URL looks like:
+  // https://docs.google.com/forms/d/e/ABC123/viewform?entry.111=Nome&entry.222=Email...
+  // Your action URL is the same path but ending in /formResponse instead of /viewform
+
+  const GOOGLE_FORM_URL    = 'https://docs.google.com/forms/d/e/REPLACE_FORM_ID/formResponse';
+  const ENTRY_NOME         = 'entry.REPLACE1';
+  const ENTRY_EMAIL        = 'entry.REPLACE2';
+  const ENTRY_WHATSAPP     = 'entry.REPLACE3';
+  const ENTRY_PAIS         = 'entry.REPLACE4';
+
+  function submitForm() {
+    const nome     = document.getElementById('f-nome').value.trim();
+    const email    = document.getElementById('f-email').value.trim();
+    const whatsapp = document.getElementById('f-whatsapp').value.trim();
+    const pais     = document.getElementById('f-pais').value;
+
+    if (!nome)               { alert('Por favor, informe seu nome.'); return; }
     if (!email && !whatsapp) { alert('Por favor, informe seu e-mail ou WhatsApp.'); return; }
 
-    // TODO: replace with Mailchimp API endpoint
+    // Submit silently via hidden iframe so user stays on our page
+    let iframe = document.getElementById('gf-iframe');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = 'gf-iframe';
+      iframe.name = 'gf-iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = GOOGLE_FORM_URL;
+    form.target = 'gf-iframe';
+
+    [[ENTRY_NOME, nome], [ENTRY_EMAIL, email], [ENTRY_WHATSAPP, whatsapp], [ENTRY_PAIS, pais]].forEach(([name, val]) => {
+      const inp = document.createElement('input');
+      inp.type = 'hidden'; inp.name = name; inp.value = val;
+      form.appendChild(inp);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+
     document.getElementById('leadForm').style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
   }
