@@ -47,34 +47,36 @@
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.18; margin-bottom: 3.5rem; }
     .section-title em { font-style: italic; color: var(--sky); }
 
+    /* shared CTA button (dark on light backgrounds) */
+    .cta-btn {
+      display: inline-block;
+      background: var(--ocean);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta-btn:hover { background: var(--sky); transform: translateY(-2px); }
+    .cta-btn.gold { background: var(--gold); }
+    .cta-btn.gold:hover { background: #b37730; }
+    .cta-center { text-align: center; margin-top: 3.5rem; }
+
     /* SELLING POINTS */
     .points-bg { background: var(--sand); }
     .points-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .point-card { background: var(--white); padding: 2rem 1.8rem; border-top: 3px solid var(--gold); transition: transform 0.2s, box-shadow 0.2s; cursor: default; }
+    .point-card { background: var(--white); padding: 2rem 1.8rem; border-top: 3px solid var(--gold); transition: transform 0.2s, box-shadow 0.2s; }
     .point-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.10); }
     .point-icon { font-size: 1.7rem; margin-bottom: 1rem; }
     .point-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
     .point-card p { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: var(--muted); }
     .point-source { display: block; margin-top: 0.8rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); opacity: 0.8; }
-
-    /* AERIAL TOOLTIP */
-    .aerial-tooltip {
-      display: none;
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 360px;
-      max-width: 88vw;
-      border-radius: 3px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      z-index: 200;
-      pointer-events: none;
-      animation: tooltipFade 0.2s ease;
-    }
-    .aerial-tooltip img { width: 100%; display: block; }
-    .aerial-tooltip-cap { background: var(--ink); padding: 0.6rem 1rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-    @keyframes tooltipFade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 
     /* PRICES */
     .price-section { background: var(--ink); }
@@ -93,6 +95,58 @@
     .price-cta { display: block; margin-top: 1.8rem; text-align: center; padding: 0.75rem 1rem; background: transparent; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.6); font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.2s; }
     .price-cta:hover, .price-card.featured .price-cta { background: var(--gold); border-color: var(--gold); color: var(--white); }
     .price-disclaimer { margin-top: 2.5rem; font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.28); font-style: italic; text-align: center; }
+    .price-section .cta-center { margin-top: 3rem; }
+
+    /* AERIAL PHOTO SECTION */
+    .aerial-section {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .aerial-section img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .aerial-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(14,26,32,0.1) 0%, rgba(14,26,32,0.65) 100%);
+    }
+    .aerial-content {
+      position: relative;
+      z-index: 2;
+      padding: 4rem 8vw;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+    }
+    .aerial-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+    .aerial-text h3 em { font-style: italic; font-weight: 400; color: #f0d8b8; }
+    .aerial-text p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      max-width: 420px;
+    }
 
     /* FORM */
     .form-section { background: var(--ocean); }
@@ -130,12 +184,6 @@
 </head>
 <body>
 
-<!-- Aerial tooltip (shared, shown on selling-point card hover) -->
-<div class="aerial-tooltip" id="aerialTooltip">
-  <img src="Niteroi_High_View.jpeg" alt="Vista aérea de Niterói">
-  <div class="aerial-tooltip-cap">Vista aérea — Centro e Caminho Niemeyer</div>
-</div>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img"></div>
@@ -160,6 +208,7 @@
   <div class="section-wrap">
     <p class="section-label reveal">Por que Niterói</p>
     <h2 class="section-title reveal">A cidade que o Rio<br>não consegue <em>parar de admirar.</em></h2>
+
     <div class="points-grid" id="pointsGrid">
 
       <div class="point-card reveal">
@@ -219,6 +268,12 @@
       </div>
 
     </div>
+
+    <!-- CTA after selling points -->
+    <div class="cta-center reveal">
+      <a href="#cadastro" class="cta-btn">Quero saber mais</a>
+    </div>
+
   </div>
 </section>
 
@@ -265,6 +320,18 @@
 
     </div>
     <p class="price-disclaimer reveal">Preços em reais brasileiros (BRL). Valores sujeitos a alteração conforme disponibilidade. Câmbio favorável para compradores em euros, kwanzas e meticais.</p>
+  </div>
+</section>
+
+<!-- AERIAL PHOTO -->
+<section class="aerial-section">
+  <img src="Niteroi_High_View.jpeg" alt="Vista aérea de Niterói — Centro e Caminho Niemeyer">
+  <div class="aerial-content">
+    <div class="aerial-text">
+      <h3>Niterói do alto —<br><em>tudo ao alcance.</em></h3>
+      <p>O Caminho Niemeyer, as barcas para o Rio, o shopping, o hospital, a universidade. Uma cidade completa, organizada, à beira da baía.</p>
+    </div>
+    <a href="#cadastro" class="cta-btn gold">Quero saber mais</a>
   </div>
 </section>
 
@@ -330,34 +397,19 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Aerial photo tooltip — appears bottom-right when hovering any selling point card
-  const tooltip = document.getElementById('aerialTooltip');
-  document.querySelectorAll('#pointsGrid .point-card').forEach(card => {
-    card.addEventListener('mouseenter', () => { tooltip.style.display = 'block'; });
-    card.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
-  });
-
   // ── Google Forms submission ──────────────────────────────────────────────
-  // SETUP INSTRUCTIONS (do this tomorrow when you create the Google Form):
-  //
-  // 1. Go to forms.google.com → create a new form
-  // 2. Add four questions: Nome (short answer), Email (short answer),
-  //    WhatsApp (short answer), País (dropdown)
-  // 3. Click the 3-dot menu (⋮) → Get pre-filled link
-  // 4. Fill dummy text in each field → click "Get Link" → copy the URL
-  // 5. Paste that URL here and extract the parts:
-  //    - The base URL up to /formResponse  → put in GOOGLE_FORM_URL
-  //    - Each entry.XXXXXXXXXX number      → put in the matching ENTRY_ variable
-  //
-  // Example pre-filled URL looks like:
-  // https://docs.google.com/forms/d/e/ABC123/viewform?entry.111=Nome&entry.222=Email...
-  // Your action URL is the same path but ending in /formResponse instead of /viewform
+  // SETUP (do when you create the Google Form):
+  // 1. Create form at forms.google.com with fields: Nome, Email, WhatsApp, País
+  // 2. Click ⋮ → Get pre-filled link → fill dummy values → Get Link
+  // 3. From that URL extract:
+  //    - Replace REPLACE_FORM_ID with your form's ID (long string after /d/e/)
+  //    - Replace entry.REPLACE1..4 with the actual entry.XXXXXXXXX numbers from the URL
 
-  const GOOGLE_FORM_URL    = 'https://docs.google.com/forms/d/e/REPLACE_FORM_ID/formResponse';
-  const ENTRY_NOME         = 'entry.REPLACE1';
-  const ENTRY_EMAIL        = 'entry.REPLACE2';
-  const ENTRY_WHATSAPP     = 'entry.REPLACE3';
-  const ENTRY_PAIS         = 'entry.REPLACE4';
+  const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/REPLACE_FORM_ID/formResponse';
+  const ENTRY_NOME      = 'entry.REPLACE1';
+  const ENTRY_EMAIL     = 'entry.REPLACE2';
+  const ENTRY_WHATSAPP  = 'entry.REPLACE3';
+  const ENTRY_PAIS      = 'entry.REPLACE4';
 
   function submitForm() {
     const nome     = document.getElementById('f-nome').value.trim();
@@ -368,7 +420,7 @@
     if (!nome)               { alert('Por favor, informe seu nome.'); return; }
     if (!email && !whatsapp) { alert('Por favor, informe seu e-mail ou WhatsApp.'); return; }
 
-    // Submit silently via hidden iframe so user stays on our page
+    // Submit silently via hidden iframe — user stays on our page
     let iframe = document.getElementById('gf-iframe');
     if (!iframe) {
       iframe = document.createElement('iframe');
@@ -382,7 +434,7 @@
     form.action = GOOGLE_FORM_URL;
     form.target = 'gf-iframe';
 
-    [[ENTRY_NOME, nome], [ENTRY_EMAIL, email], [ENTRY_WHATSAPP, whatsapp], [ENTRY_PAIS, pais]].forEach(([name, val]) => {
+    [[ENTRY_NOME, nome],[ENTRY_EMAIL, email],[ENTRY_WHATSAPP, whatsapp],[ENTRY_PAIS, pais]].forEach(([name, val]) => {
       const inp = document.createElement('input');
       inp.type = 'hidden'; inp.name = name; inp.value = val;
       form.appendChild(inp);
