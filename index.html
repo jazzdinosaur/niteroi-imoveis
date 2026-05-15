@@ -298,14 +298,8 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Google Forms submission — real entry IDs wired in
-  const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf4Rqq4Id95Y3K7Wy2JfyeQsNzzaNLsQP5m3-7pweRgh1sfLw/formResponse';
-  const ENTRY_NOME      = 'entry.1398343126';
-  const ENTRY_EMAIL     = 'entry.1865232801';
-  const ENTRY_WHATSAPP  = 'entry.1568945586';
-  const ENTRY_PAIS      = 'entry.1664089182';
-
-  function submitForm() {
+  // Formspree submission
+  async function submitForm() {
     const nome     = document.getElementById('f-nome').value.trim();
     const email    = document.getElementById('f-email').value.trim();
     const whatsapp = document.getElementById('f-whatsapp').value.trim();
@@ -314,32 +308,30 @@
     if (!nome)               { alert('Por favor, informe seu nome.'); return; }
     if (!email && !whatsapp) { alert('Por favor, informe seu e-mail ou WhatsApp.'); return; }
 
-    // Submit silently via hidden iframe — user stays on our page
-    let iframe = document.getElementById('gf-iframe');
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.id = 'gf-iframe';
-      iframe.name = 'gf-iframe';
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
+    const btn = document.querySelector('.submit-btn');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xrejnbvk', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email, whatsapp, pais })
+      });
+
+      if (res.ok) {
+        document.getElementById('leadForm').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      } else {
+        btn.textContent = 'Enviar cadastro';
+        btn.disabled = false;
+        alert('Ocorreu um erro. Por favor, tente novamente.');
+      }
+    } catch(e) {
+      btn.textContent = 'Enviar cadastro';
+      btn.disabled = false;
+      alert('Ocorreu um erro. Por favor, tente novamente.');
     }
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = GOOGLE_FORM_URL;
-    form.target = 'gf-iframe';
-
-    [[ENTRY_NOME, nome],[ENTRY_EMAIL, email],[ENTRY_WHATSAPP, whatsapp],[ENTRY_PAIS, pais]].forEach(([name, val]) => {
-      const inp = document.createElement('input');
-      inp.type = 'hidden'; inp.name = name; inp.value = val;
-      form.appendChild(inp);
-    });
-
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-
-    document.getElementById('leadForm').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
   }
 </script>
 </body>
