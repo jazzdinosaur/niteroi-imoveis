@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Viva em Niteroi -- Seu Imovel no Brasil</title>
+  <title>Viva em Niteroi -- Invista em Niteroi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,13 +25,17 @@
     .hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
     .hero-img { position: absolute; inset: 0; background: url('Niteroi_Stock.jpg') center center / cover no-repeat; }
     .hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,26,32,0.15) 0%, rgba(14,26,32,0.20) 40%, rgba(14,26,32,0.78) 100%); }
-    .hero-content { position: relative; z-index: 2; padding: 0 8vw 6vh; max-width: 860px; }
+    .hero-content { position: relative; z-index: 2; padding: 0 8vw 6vh; max-width: 900px; }
     .hero-eyebrow { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(200,137,58,0.5); padding: 0.3rem 0.9rem; margin-bottom: 1.6rem; opacity: 0; animation: fadeUp 0.7s 0.3s forwards; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6.5vw, 5.8rem); font-weight: 700; line-height: 1.07; color: var(--white); margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6.5vw, 5.8rem); font-weight: 700; line-height: 1.07; color: var(--white); margin-bottom: 0.8rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
     .hero h1 em { font-style: italic; font-weight: 400; color: #f0d8b8; }
-    .hero-sub { font-size: clamp(0.95rem, 1.5vw, 1.15rem); font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.75; max-width: 560px; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
-    .hero-btn { display: inline-block; background: var(--gold); color: var(--white); font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.5rem; border: none; cursor: pointer; transition: background 0.25s, transform 0.2s; opacity: 0; animation: fadeUp 0.8s 0.9s forwards; }
+    .hero-tagline { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.5rem); font-weight: 400; font-style: italic; color: var(--gold); margin-bottom: 1.4rem; letter-spacing: 0.02em; opacity: 0; animation: fadeUp 0.8s 0.65s forwards; }
+    .hero-sub { font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.75; max-width: 560px; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; opacity: 0; animation: fadeUp 0.8s 0.9s forwards; }
+    .hero-btn { display: inline-block; background: var(--gold); color: var(--white); font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.5rem; border: none; cursor: pointer; transition: background 0.25s, transform 0.2s; }
     .hero-btn:hover { background: #b37730; transform: translateY(-3px); }
+    .hero-btn.outline { background: transparent; border: 1px solid rgba(255,255,255,0.5); }
+    .hero-btn.outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 
     /* STATS */
     .stats-bar { background: var(--ocean); display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -59,6 +63,15 @@
     .point-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
     .point-card p { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: var(--muted); }
     .point-source { display: block; margin-top: 0.8rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); opacity: 0.8; }
+
+    /* FINANCING BANNER */
+    .financing-band { background: var(--ocean); padding: 3rem 8vw; }
+    .financing-inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+    .financing-text h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    .financing-text h3 em { font-style: italic; font-weight: 400; color: #f0d8b8; }
+    .financing-text p { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 520px; }
+    .financing-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
+    .ftag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; padding: 0.35rem 0.8rem; }
 
     /* PRICES */
     .price-section { background: var(--ink); }
@@ -104,9 +117,8 @@
     .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
     .footer-brand span { color: var(--gold); }
     .footer-copy { font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.3); }
-
-    /* THANK YOU banner (shown after redirect back) */
-    .obrigado-banner { display: none; background: var(--gold); color: var(--white); text-align: center; padding: 1rem 2rem; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; }
+    .footer-insta { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s; }
+    .footer-insta:hover { color: var(--gold); }
 
     /* ANIMATIONS */
     @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
@@ -116,19 +128,18 @@
 </head>
 <body>
 
-<!-- Thank you banner shown after form redirect -->
-<div class="obrigado-banner" id="obrigadoBanner">
-  Obrigado pelo seu cadastro! Entraremos em contato em breve.
-</div>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img"></div>
   <div class="hero-content">
     <span class="hero-eyebrow">Niteroi - Rio de Janeiro - Brasil</span>
-    <h1>O seu proximo lar,<br><em>do outro lado<br>do oceano.</em></h1>
-    <p class="hero-sub">Niteroi combina qualidade de vida incomparavel, praias tranquilas e acesso rapido ao Rio com imoveis novos a precos que nenhuma outra cidade lusofona pode oferecer.</p>
-    <a href="#cadastro" class="hero-btn">Quero saber mais</a>
+    <h1>Viva em Niteroi.<br><em>Invista em Niteroi.</em></h1>
+    <p class="hero-tagline">Apartamentos modernos, localizacao privilegiada, suporte completo.</p>
+    <p class="hero-sub">Para quem quer morar com qualidade de vida incomparavel ou investir num mercado em plena expansao: Niteroi oferece o melhor dos dois mundos.</p>
+    <div class="hero-btns">
+      <a href="#cadastro" class="hero-btn">Quero saber mais</a>
+      <a href="#precos" class="hero-btn outline">Ver precos</a>
+    </div>
   </div>
 </section>
 
@@ -144,56 +155,49 @@
 <section class="points-bg">
   <div class="section-wrap">
     <p class="section-label reveal">Por que Niteroi</p>
-    <h2 class="section-title reveal">A cidade que o Rio<br>nao consegue <em>parar de admirar.</em></h2>
+    <h2 class="section-title reveal">Uma cidade completa,<br><em>moderna e valorizada.</em></h2>
     <div class="points-grid">
+
       <div class="point-card reveal">
         <div class="point-icon">&#127959;</div>
-        <h3>Boom imobiliario</h3>
-        <p>Os lancamentos cresceram 73% em 2025 em relacao a 2024, com mais de 2.900 novas unidades e as vendas subiram 45%. O mercado esta em expansao consistente.</p>
-        <span class="point-source">Fonte: ADEMI Niteroi, dez. 2025</span>
+        <h3>Apartamentos modernos</h3>
+        <p>Unidades sofisticadas com acabamento de alto padrao, vagas de garagem, piscina, academia e areas de lazer completas para toda a familia.</p>
       </div>
+
       <div class="point-card reveal">
         <div class="point-icon">&#127749;</div>
-        <h3>Vista unica do Rio</h3>
-        <p>Niteroi oferece a vista mais bonita do Rio de Janeiro: o skyline, o Pao de Acucar e o Corcovado vistos do outro lado da baia, a partir do seu proprio apartamento.</p>
-        <span class="point-source">Fonte: Street Smart Brazil / Wikivoyage</span>
-      </div>
-      <div class="point-card reveal">
-        <div class="point-icon">&#9972;</div>
-        <h3>Ferry rapido para o Rio</h3>
-        <p>A travessia da Baia de Guanabara leva entre 10 e 20 minutos, com saidas frequentes da Praca XV: transporte publico, nao turistico. Quase 30 milhoes de passageiros por ano.</p>
+        <h3>Localizacao privilegiada</h3>
+        <p>Niteroi fica do outro lado da Baia de Guanabara: vista direta para o Pao de Acucar, o Corcovado e o skyline do Rio, a 20 minutos de ferry da cidade.</p>
         <span class="point-source">Fonte: TourByTransit / Wikivoyage</span>
       </div>
+
       <div class="point-card reveal">
         <div class="point-icon">&#128200;</div>
-        <h3>IDH mais alto do estado</h3>
-        <p>Niteroi tem o Indice de Desenvolvimento Humano mais alto de todo o estado do Rio de Janeiro, refletindo saude, educacao e qualidade de vida acima da media nacional.</p>
-        <span class="point-source">Fonte: IBGE / Fundacao Getulio Vargas</span>
+        <h3>Excelente potencial de valorizacao</h3>
+        <p>Lancamentos cresceram 73% em 2025, alugueis subiram 56% em 4 anos. Niteroi tem o IDH mais alto do estado do RJ e a maior proporcao de classe A do Brasil.</p>
+        <span class="point-source">Fonte: ADEMI Niteroi / FGV</span>
       </div>
+
       <div class="point-card reveal">
         <div class="point-icon">&#127958;</div>
-        <h3>Praias tranquilas</h3>
-        <p>Itaipu, Camboinhas, Piratininga e Itacoatiara: praias de areia branca, ondas limpas e sem a lotacao de Copacabana. Acesso por onibus ou Uber direto.</p>
-        <span class="point-source">Fonte: Above Us Only Skies / Wikivoyage</span>
+        <h3>Lazer e praias tranquilas</h3>
+        <p>Itaipu, Camboinhas, Piratininga e Itacoatiara: praias limpas e sem lotacao. Mais o Caminho Niemeyer, museus, restaurantes e a vibrante vida urbana de Niteroi.</p>
+        <span class="point-source">Fonte: Wikivoyage / Street Smart Brazil</span>
       </div>
-      <div class="point-card reveal">
-        <div class="point-icon">&#127963;</div>
-        <h3>Arquitetura de Niemeyer</h3>
-        <p>O Caminho Niemeyer, na orla, reune a segunda maior colecao de obras de Oscar Niemeyer, incluindo o iconico MAC, o "disco voador" sobre o mar.</p>
-        <span class="point-source">Fonte: Street Smart Brazil</span>
-      </div>
-      <div class="point-card reveal">
-        <div class="point-icon">&#128188;</div>
-        <h3>Cidade de alta renda</h3>
-        <p>Segundo a FGV, Niteroi tem a maior proporcao de habitantes de classe A do Brasil (55,7%), e 85,9% da populacao nas classes A e B. Uma vizinhanca de alto padrao.</p>
-        <span class="point-source">Fonte: Fundacao Getulio Vargas</span>
-      </div>
+
       <div class="point-card reveal">
         <div class="point-icon">&#128187;</div>
         <h3>Ideal para trabalho remoto</h3>
-        <p>A demanda por imoveis com espaco para home office cresceu 30% em Niteroi. Para quem trabalha de qualquer lugar do mundo, e a combinacao perfeita: praia, cidade e conectividade.</p>
+        <p>Demanda por home office cresceu 30% em Niteroi. Para quem trabalha de qualquer lugar do mundo, e a combinacao perfeita: infraestrutura, qualidade de vida e conectividade.</p>
         <span class="point-source">Fonte: The Latin Investor, 2024</span>
       </div>
+
+      <div class="point-card reveal">
+        <div class="point-icon">&#128203;</div>
+        <h3>Suporte especializado</h3>
+        <p>Processo de compra com orientacao completa para brasileiros e estrangeiros: documentacao, financiamento, registro e acompanhamento em cada etapa.</p>
+      </div>
+
     </div>
     <div class="cta-center reveal">
       <a href="#cadastro" class="cta-btn">Quero saber mais</a>
@@ -201,8 +205,25 @@
   </div>
 </section>
 
+<!-- FINANCING BAND -->
+<div class="financing-band">
+  <div class="financing-inner reveal">
+    <div class="financing-text">
+      <h3>Financiamento facilitado<br><em>para brasileiros e estrangeiros.</em></h3>
+      <p>Seja voce residente no Brasil ou no exterior, nossa equipe oferece suporte completo no processo de financiamento e aquisicao. Cambio favoravel para quem compra em euros, kwanzas ou meticais.</p>
+      <div class="financing-tags">
+        <span class="ftag">Financiamento CEF / bancos</span>
+        <span class="ftag">Compra a vista</span>
+        <span class="ftag">Suporte para estrangeiros</span>
+        <span class="ftag">Documentacao assistida</span>
+        <span class="ftag">Cambio favoravel</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PRICES -->
-<section class="price-section">
+<section class="price-section" id="precos">
   <div class="section-wrap">
     <p class="section-label reveal">Imoveis disponiveis</p>
     <h2 class="section-title reveal">Precos atuais --<br><em>em constante valorizacao.</em></h2>
@@ -212,7 +233,7 @@
         <div class="price-type">1 Quarto</div>
         <div class="price-amount">R$ 321.999</div>
         <span class="price-from">atualmente a partir de</span>
-        <div class="price-desc">Unidades compactas ideais para investimento ou moradia individual, em localizacao privilegiada.</div>
+        <div class="price-desc">Ideal para moradia individual ou investimento com alto potencial de locacao.</div>
         <a href="#cadastro" class="price-cta">Quero informacoes</a>
       </div>
       <div class="price-card reveal">
@@ -226,7 +247,7 @@
         <div class="price-type">2 Quartos com Suite</div>
         <div class="price-amount">R$ 654.500</div>
         <span class="price-from">atualmente a partir de</span>
-        <div class="price-desc">Com vaga e vista para a baia. O equilibrio perfeito entre conforto, localizacao e valorizacao.</div>
+        <div class="price-desc">Com vaga e vista para a baia. Conforto, localizacao e valorizacao em perfeito equilibrio.</div>
         <a href="#cadastro" class="price-cta">Quero informacoes</a>
       </div>
       <div class="price-card reveal">
@@ -237,7 +258,7 @@
         <a href="#cadastro" class="price-cta">Quero informacoes</a>
       </div>
     </div>
-    <p class="price-disclaimer reveal">Precos em reais brasileiros (BRL). Valores sujeitos a alteracao conforme disponibilidade. Cambio favoravel para compradores em euros, kwanzas e meticais.</p>
+    <p class="price-disclaimer reveal">Precos em reais brasileiros (BRL). Valores sujeitos a alteracao conforme disponibilidade. Financiamento disponivel. Cambio favoravel para compradores em euros, kwanzas e meticais.</p>
   </div>
 </section>
 
@@ -290,21 +311,18 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">Viva em <span>Niteroi</span></div>
-  <div class="footer-copy">2025 - Informacoes sobre imoveis em Niteroi, RJ, Brasil</div>
+  <a href="https://www.instagram.com/darlaimoveis.rj/" target="_blank" rel="noopener" class="footer-insta" aria-label="Instagram Darla Imoveis">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+    <span>@darlaimoveis.rj</span>
+  </a>
+  <div class="footer-copy">2025 - Imoveis em Niteroi, RJ, Brasil</div>
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Show thank-you banner if redirected back after form submission
-  if (window.location.search.includes('obrigado=1')) {
-    document.getElementById('obrigadoBanner').style.display = 'block';
-    window.scrollTo(0, 0);
-  }
 </script>
 </body>
 </html>
